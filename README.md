@@ -19,7 +19,7 @@ See provided FGRP.pdf for brief definitions; see above papers for full explanati
 
 ## Usage:
 
- * Just add the FGRadPot.cpp and FGRadPot.hpp files to your code source directly
+ * Just add the FGRadPot.cpp and FGRadPot.hpp files to your source code directly
  * See the example program for an example
  * Alternatively, use the example program to generate and output radiative potential
  * Requires GSL (GNU scientific libraries) https://www.gnu.org/software/gsl/
@@ -61,3 +61,17 @@ double Fit::B(double Z, int l = 0);
  * r is radial coordinate, in atomic units (aB=1)
  * rN is nuclear radius, in atomic units
    * nb: rN = Sqrt(5/3)*r_rms  [r_rms is root-mean-square radius]
+ * l is orbital angular quantum number
+
+
+## Example program
+
+An example program is given (example.cpp). It will calculate electric and magnetic parts of radiative potential along a exponentially-spaced radial grid, and write to a text file (radpot.txt). You can use this text file, or use the example code to do something more specific.
+
+Compile:
+ * g++ -std=c++17 -O3 -o example example.cpp FGRadPot.cpp -lgsl -lblas
+
+
+Then, run as (e.g.):
+ * ./example 55 4.8041 0
+ * Will write to file for Cs s-states, including finite-nuclear size corrections

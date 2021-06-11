@@ -117,6 +117,7 @@ double r_integral(std::function<double(double)> f, double a, double b,
   };
   const auto dxdt = [=](auto i) {
     if constexpr (IT == IntType::Linear) {
+      (void)i;
       return 1.0;
     } else {
       return x(i); // dxdt = x(t) for log
