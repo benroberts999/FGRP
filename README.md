@@ -13,7 +13,9 @@ Note:
  * All radii (r and rN) are given in atomic units
  * Sign convention: H -> H - V_rad
  * High- and low- frequency V(r) do not include A or B fitting coefficients.
- * V_rad = V_Uehling + A(Z,l)*V_SEh + B(Z,l)*V_SEl + V_WK + i(g.n)H_Magnetic
+   * A(Z,l) and B(Z,l) are implement as seperate functions, allowing easy update
+ * Full radiative potential is thus formed:
+   * V_rad = V_Uehling + A(Z,l)*V_SEh + B(Z,l)*V_SEl + V_WK + i(gamma.n)H_Magnetic
 
 See provided FGRP.pdf for brief definitions; see above papers for full explanation.
 
@@ -28,6 +30,8 @@ See provided FGRP.pdf for brief definitions; see above papers for full explanati
  * On mac, may have to explicitely link to GSL; typically installed here:
    * _-I/usr/local/opt/gnu-scientific-library/include/_
    * _-L/usr/local/opt/gnu-scientific-library/lib/_
+   * The specific installation directory will depend on how you installed GSL
+   * This example is for those installed via homebrew (with intel-chip mac)
  * Uses c++-17 (g++ version 7 or higher; clang++ version 6 or higher)
 
 
